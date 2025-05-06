@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>NBA Prediction Game</title>
+</head>
+<body>
+    <h1>NBA Prediction Game</h1>
+    <p>You have {{ points }} points.</p>
+
+    <h2>Today's Games</h2>
+    {% if games %}
+        <ul>
+            {% for game in games %}
+                <li>{{ game['home_team']['full_name'] }} vs {{ game['visitor_team']['full_name'] }}</li>
+            {% endfor %}
+        </ul>
+        <a href="{{ url_for('predict') }}">Make a Prediction</a>
+    {% else %}
+        <p>No games today.</p>
+    {% endif %}
+</body>
+</html>
